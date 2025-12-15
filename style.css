@@ -1,0 +1,110 @@
+html{
+    background: linear-gradient(to right, bisque 0%, #e8d5d5 100%);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 20px;
+    perspective: 1000px;
+}
+div{
+    background: linear-gradient(to right, #e8d5d5 0%, bisque 100%);
+    border: none;
+    padding: 18px;
+    margin: 16px 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transform-origin: center top;
+    transform: translateY(30px) rotateX(8deg) scale(0.985);
+    opacity: 0;
+    transition: transform 520ms cubic-bezier(.2,.9,.2,1), opacity 380ms ease, box-shadow 380ms ease;
+    will-change: transform, opacity, box-shadow;
+}
+div.in-view{
+    transform: translateY(0) rotateX(0deg) scale(1);
+    opacity: 1;
+    box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+}
+div p{
+    margin: 0 0 1em 0;
+}
+div h1{
+    text-align: center;
+    text-decoration: underline;
+    font-size: xx-large;
+    color: red;
+    margin: 0 0 0.6em 0;
+}
+div h2{
+    text-align: center;
+    font-size: xx-large;
+    margin: 0 0 0.8em 0;
+}
+#zero{
+    border: 0px;
+}
+div p a{
+    text-decoration: none;
+    color: darkblue;
+    border: none;
+    transition: background-position 0.45s ease, color 0.25s ease, transform 0.15s ease;
+    will-change: background-position, transform;
+}
+div p a:hover{
+    color: purple;
+    text-decoration: underline;
+    background-position: 100% 0%;
+    transform: translateY(-4px);
+    cursor: pointer;
+}
+#none2{
+    border: 1px solid transparent;
+}
+a{
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(to right, lightblue, rgb(83, 83, 243));
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    color: black;
+    border-radius: 6px;
+    transition: background-position 0.45s ease, color 0.25s ease, transform 0.15s ease;
+    will-change: background-position, transform;
+}
+a:hover{
+    background-position: 100% 0%;
+    cursor: pointer;
+    transform: translateY(-4px);
+    color: white;
+}
+h1{
+    text-align: center;
+}
+#easter-egg2{
+    color: transparent;
+    transition: color 30s ease;
+}
+#easter-egg2:hover{
+    cursor: pointer;
+    color: black;
+    width: fit-content;
+}
+img{
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 12px;
+}
+#none2{
+    margin-top:0%;
+}
