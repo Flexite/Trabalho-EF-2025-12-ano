@@ -43,4 +43,43 @@ document.addEventListener('DOMContentLoaded', function(){
 
     const sendBtn = document.getElementById('sendBtn');
     if(sendBtn) sendBtn.addEventListener('click', mensagem);
+
+    const colorSlider = document.getElementById('colorSlider');
+    const colorLabel = document.getElementById('colorLabel');
+    const cookieName = 'waveColor';
+    const colors = {
+        '1': ['rgb(194, 244, 148)', 'Verde'],
+        '2': ['rgb(244, 194, 148)', 'Laranja'],
+        '3': ['rgb(148, 194, 244)', 'Azul'],
+        '4': ['rgb(244, 148, 194)', 'Rosa'],
+        '5': ['rgb(148, 244, 234)', 'Azul Claro']
+    };
+
+    const setCookie = (name, value, days) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+    };
+
+    const getCookie = name => {
+        const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return match ? match[1] : null;
+    };
+
+    const applyWaveColor = (value, save = false) => {
+        const [color, label] = colors[value] || colors['1'];
+        document.documentElement.style.setProperty('--wave-color', color);
+        if(colorLabel) colorLabel.textContent = label;
+        if(save) {
+            setCookie(cookieName, value, 365);
+        }
+    };
+
+    const savedValue = getCookie(cookieName) || '1';
+    applyWaveColor(savedValue, false);
+
+    if(colorSlider) {
+        colorSlider.value = savedValue;
+        colorSlider.addEventListener('input', event => applyWaveColor(event.target.value, true));
+    }
 });

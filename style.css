@@ -1,10 +1,28 @@
+:root {
+    --wave-color: rgb(194, 244, 148);
+}
+
 html{
-    background: linear-gradient(to right, bisque 0%, #e8d5d5 100%);
+    background: linear-gradient(to right, var(--wave-color) 0%, #e8d5d5 100%);
+    background-size: 300% 300%;
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    animation: backgroundMove 8s ease infinite;
+}
+@keyframes backgroundMove {
+    0% { background-position: 25% 75%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position:25% 75%;}
+}
+@keyframes wave{
+    0% { background-position: 25% 75%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position:25% 75%;}
 }
 *,
 *::before,
@@ -16,8 +34,37 @@ body {
     padding: 20px;
     perspective: 1000px;
 }
+.slider-control {
+    margin: 16px 0;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.75);
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.slider-control label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.slider-control input[type="range"] {
+    width: 100%;
+}
+.slider-control span {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: bold;
+}
+div div{
+    background: linear-gradient(to right, var(--wave-color) 0%, #e8d5d5 100%);
+    background-size: 300% 300%;
+    animation: backgroundMove 8s ease infinite;
+    border: none;
+    padding: 18px;
+}
 div{
-    background: linear-gradient(to right, #e8d5d5 0%, bisque 100%);
+    background: linear-gradient(to right, #e8d5d5 0%, var(--wave-color) 100%);
+    background-size: 300% 300%;
+    animation: wave 8s ease infinite;
     border: none;
     padding: 18px;
     margin: 16px 0;
