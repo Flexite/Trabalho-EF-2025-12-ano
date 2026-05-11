@@ -38,7 +38,6 @@ body {
     margin: 16px 0;
     padding: 14px 18px;
     background: rgba(255,255,255,0.75);
-    border-radius: 14px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 .slider-control label {
@@ -52,7 +51,6 @@ body {
 .slider-control span {
     display: inline-block;
     margin-top: 8px;
-    font-weight: bold;
 }
 div div{
     background: linear-gradient(to right, var(--wave-color) 0%, #e8d5d5 100%);
@@ -127,6 +125,25 @@ a{
     border-radius: 6px;
     transition: background-position 0.45s ease, color 0.25s ease, transform 0.15s ease;
     will-change: background-position, transform;
+}
+button{
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(to right, lightblue, rgb(83, 83, 243));
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    color: black;
+    border-radius: 6px;
+    transition: background-position 0.45s ease, color 0.25s ease, transform 0.15s ease;
+    will-change: background-position, transform;  
+}
+button:hover{
+    background-position: 100% 0%;
+    cursor: pointer;
+    transform: translateY(-4px);
+    color: white;   
 }
 a:hover{
     background-position: 100% 0%;
